@@ -2,7 +2,6 @@ package com.example.recyclerviewsample.ui.appslist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -22,18 +21,19 @@ class AppsListAdapter : ListAdapter<Apps, AppsListAdapter.MemberViewHolder>(Memb
         holder.bind(member)
     }
 
-    inner class MemberViewHolder(private val binding: ListItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class MemberViewHolder(private val binding: ListItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Apps) {
             binding.ivIconList.setImageResource(item.icon)
             binding.tvNameList.text = item.name
 
             binding.root.setOnClickListener {
-                val position = absoluteAdapterPosition
+                val position = bindingAdapterPosition
                 if (position != RecyclerView.NO_POSITION) {
                     val app = getItem(position)
                     val action =
                         AppsListFragmentDirections.actionAppsListFragmentToAppDetailFragment(app)
-                   it.findNavController().navigate(action)
+                    binding.root.findNavController().navigate(action)
                 }
             }
         }
