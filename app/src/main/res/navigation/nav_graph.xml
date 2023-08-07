@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/appsListFragment">
+
+    <fragment
+        android:id="@+id/appsListFragment"
+        android:name="com.example.recyclerviewsample.ui.appslist.AppsListFragment"
+        android:label="fragment_apps_list"
+        tools:layout="@layout/fragment_apps_list">
+        <action
+            android:id="@+id/action_appsListFragment_to_appDetailFragment"
+            app:destination="@id/appDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/appDetailFragment"
+        android:name="com.example.recyclerviewsample.ui.appsdetail.AppDetailFragment"
+        android:label="fragment_app_detail"
+        tools:layout="@layout/fragment_app_detail">
+        <argument
+            android:name="selectedApp"
+            app:argType="com.example.recyclerviewsample.model.Apps" />
+    </fragment>
+
+</navigation>
