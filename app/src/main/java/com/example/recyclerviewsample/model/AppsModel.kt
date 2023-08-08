@@ -1,6 +1,8 @@
 package com.example.recyclerviewsample.model
 
-import android.graphics.drawable.Drawable
+
+import java.io.Serializable
+
 
 data class Apps(
     val name: String,
@@ -9,4 +11,4 @@ data class Apps(
     val category: String,
     val storeUrl: Int,
     val definition: String,
-)
+) : Serializable

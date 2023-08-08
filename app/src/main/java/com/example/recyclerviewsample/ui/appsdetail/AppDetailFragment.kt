@@ -42,7 +42,9 @@ class AppDetailFragment : Fragment() {
             tvReleaseDate.text = selectedApp.releaseDate
             tvDefinition.text = selectedApp.definition
             tvCategory.text = selectedApp.category
-            tvUrl.text = selectedApp.storeUrl.toString()
+            val storeUrlResourceId = selectedApp.storeUrl
+            val storeUrlString = context?.getString(storeUrlResourceId)
+            tvUrl.text = storeUrlString
         }
     }
 
